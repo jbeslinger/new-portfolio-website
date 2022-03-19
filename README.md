@@ -1,2 +1,2 @@
-# new-portfolio-website
-A revamp of my portfolio website in Node.js
+# New Portfolio Website
+This is a complete overhaul of my personal portfolio website in Node.
