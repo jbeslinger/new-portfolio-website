@@ -1,19 +1,10 @@
 import React from "react";
+import Introduction from "./views/Introduction";
 
 function App() {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
   return (
-    <div className="App">
-      <header className="">
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
+    <div className="container bg-scrolling">
+      <Introduction />
     </div>
   );
 }
