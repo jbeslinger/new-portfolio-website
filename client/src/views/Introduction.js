@@ -4,11 +4,11 @@ import avatar from "../img/av_day1.png"
 class Introduction extends Component {
     render() {
         return (
-            <div>
+            <div className="mb-5 mt-5">
                 <div className="textbox bg-secondary mb-4">
                     <h1 className="mb-4">
                         <img src={avatar} />
-                        * "Yo! I'm Josh.
+                        * "Yo! I'm Josh."
                     </h1>
                     <i>* Video Game Developer / Player, Freelance Programmer, Tinkerer</i>
                 </div>
@@ -20,8 +20,8 @@ class Introduction extends Component {
                     <p>* There's a lot to see, so have a look around! 😎</p>
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default Introduction;
+export default Introduction
