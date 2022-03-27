@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 // blog article schema definition
-const articles = mongoose.Schema({
+const articleSchema = mongoose.Schema({
     
     title          :    String,
     
@@ -21,4 +21,4 @@ const articles = mongoose.Schema({
 });
 
 // expose it to our app
-module.exports = mongoose.model('Articles', articles);
+module.exports = mongoose.model('Articles', articleSchema);

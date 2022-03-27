@@ -1,0 +1,42 @@
+<div id="skills" class="mb-5 mt-5">
+    <div class="textbox bg-secondary mb-4">
+        <h1 class="mb-4">
+            <img src="img/av_skills.png" />
+            * Skills and Education
+        </h1>
+    </div>
+
+    <div class="textbox bg-secondary mb-4">
+        <% skills.forEach(skill => { %>
+            <h1><%= skill.name %></h1>
+            <p><%= skill.type %></p>
+        <% }) %>
+    </div>
+
+    <div class="textbox container bg-secondary mb-4">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Lake Land College</h5>
+                        <img class="mx-auto d-block" src="img/coll.png" />
+                        <p class="card-text text-center mb-0">Mattoon, IL</p>
+                        <p class="card-text text-center mb-0">AAS in IT - Programming</p>
+                        <p class="card-text text-center mb-0">Grad 2015 - 3.2 GPA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">University of Illinois</h5>
+                        <img class="mx-auto d-block" src="img/univ.png" />
+                        <p class="card-text text-center mb-0">Springfield, IL</p>
+                        <p class="card-text text-center mb-0">BS in Computer Science</p>
+                        <p class="card-text text-center mb-0">Grad 2022 - 4.0 GPA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

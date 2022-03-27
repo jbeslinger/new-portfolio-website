@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 // projects schema definition
-const projects = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     title          :    String,
     
     description    :    String,
@@ -23,4 +23,4 @@ const projects = mongoose.Schema({
 });
 
 // expose it to our app
-module.exports.projects = mongoose.model('Projects', projects);
+module.exports = mongoose.model('Projects', projectSchema);
