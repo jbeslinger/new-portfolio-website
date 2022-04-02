@@ -1,0 +1,39 @@
+<%
+    var categories = new Array()
+    skills.forEach(skill => {
+        if (!categories.includes(skill.type)) {
+            categories.push(skill.type)
+        }
+    })
+%>
+
+<% categories.forEach(category => { %>
+    <%
+        var _skills = new Array()
+        skills.forEach(skill => {
+            if (skill.type == category) {
+                _skills.push(skill)
+            }
+        })
+    %>
+
+    <h2 class="text-center"><%= category %></h2> <hr />
+    <div class="container mb-4">
+        <div class="row justify-content-center">
+            <% _skills.forEach(skill => { %>
+                <div class="col" style="max-width: 8rem;">
+                    <div class="card" >
+                        <img class="card-img-top mb-4" src=<%= skill.logo %> style="height: 4rem;">
+                        <div class="card-body p-0">
+                            <!-- The name is often in the logo itself -->
+                            <!-- <h5 class="card-title text-center"><%= skill.name %></h5> -->
+                            <div class="progress">
+                                <div class="progress-bar" style="width: <%= (skill.proficiency * 100 / 5) %>%" role="progressbar" aria-valuenow=<%= skill.proficiency %> aria-valuemin="0" aria-valuemax="5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<% }) %>
