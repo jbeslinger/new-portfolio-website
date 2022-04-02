@@ -1,0 +1,14 @@
+<!-- Todo: pull out inline css. Josh needs to confirm color scheme -->
+<nav class="navbar navbar-expand-lg d-block pb-0" style="background-color: #302020;">
+    <a class="navbar-brand " href="#"><img class="spinny mx-auto d-block" src="img/favicon-big.png"></a>
+    <ul id="navbar" class="navbar-nav pl-5 col-12 h-100" style="background-color: #917575;">
+        <% for(var nav in navBar){ %>
+            <li class="nav-item col-2">
+                <a class="text-decoration-none d-block text-center" href="<%= navBar[nav].link %>" style="color:#302020">
+                    <img class="mx-auto d-block" src="<%= navBar[nav].img %>">
+                    <%= navBar[nav].title %>
+                </a>
+            </li>
+        <% }%>
+    </ul>
+</nav>

@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 const skills = require('./models/queries/get_skills');
 const portfolios = require('./models/queries/get_portfolios');
 const articles = require('./models/queries/get_articles');
+const navBar = require('./config/navbar');
 
 // database configuration
 mongoose.connect(dbConfig.url);
@@ -27,7 +28,7 @@ app.get('/', async (req, res) =>  {
     const allPortfolios = await portfolios.getAllPortfolio();
     const allArticles =  await articles.getAllArticles();
 
-    res.render('layout', { skills : allSkills , blog: allArticles , portfolio : allPortfolios});
+    res.render('layout', { navBar: navBar.getnavBarItems, skills : allSkills , blog: allArticles , portfolio : allPortfolios});
 });
 
 app.listen(PORT, () => {
