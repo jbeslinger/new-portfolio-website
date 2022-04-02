@@ -4,4 +4,4 @@ const getAllArticles = () => {
     return article.find();
 };
 
-module.exports.getAllArticle = getAllArticles;
+module.exports.getAllArticles = getAllArticles;
