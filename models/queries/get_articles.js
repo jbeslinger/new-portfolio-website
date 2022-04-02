@@ -1,7 +1,7 @@
 const article = require('../article_model');
 
-const getAllArticle = () => {
+const getAllArticles = () => {
     return article.find();
 };
 
-module.exports.getAllArticle = getAllArticle;
+module.exports.getAllArticle = getAllArticles;

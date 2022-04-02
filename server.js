@@ -25,7 +25,7 @@ const routes = ['/', '/intro', '/about', '/skills', '/portfolio', '/contact']
 app.get('/', async (req, res) =>  {
     const allSkills = await skills.getAllSkills()
     const allPortfolios = await portfolios.getAllPortfolio();
-    const allArticles =  await articles.getAllArticle;
+    const allArticles =  await articles.getAllArticles();
 
     res.render('layout', { skills : allSkills , blog: allArticles , portfolio : allPortfolios});
 });
