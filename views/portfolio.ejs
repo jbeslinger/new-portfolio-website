@@ -1,22 +1,13 @@
+<!-- Todo: pull out inline css. -->
 <div id="portfolio" class="mb-5 mt-5">
-    <div class="textbox bg-secondary mb-4">
+    <div class="textbox mb-4" style="background: #302020; color:white">
         <h1 class="mb-4">
             <img src="img/av_works.png" />
             * Personal Work
         </h1>
     </div>
 
-    <div id="portfolio" class="textbox bg-secondary mb-4">
-        <b class="bg-white text-danger">This is where the portfolio items will be rendered.</b>
-        <div class="textbox bg-secondary mb-4">
-            <% portfolio.forEach(project => { %>
-                <h1><%= project.title %></h1>
-                <p><%= project.year %></p>
-                <p><%= project.title %></p>
-                <p><%= project.skills_used %></p>
-                <p><%= project.src_code %></p>
-                <p><%= project.dl_link %></p>
-            <% }) %>
-        </div>
+    <div id="portfolio" class="row textbox mb-4 p-3 pt-2 pb-2 gx-0" style="background: #302020;">
+        <%- include("partials/portfolio_cards") %>
     </div>
 </div>
