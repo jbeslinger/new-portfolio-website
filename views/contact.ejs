@@ -9,16 +9,15 @@
     <div class="textbox bg-secondary mb-4">
         <p>* I'm interested in freelance work opportunities, fan projects, pitches, and job offers!</p>
         <h5 class="text-center mb-4">Feel free to reach out!</h5>
-        <form id="frm-mailme">
-
+        <form id="mailMe" action="/send" method="post">
             <div class="form-group mb-4">
-                <label for="exampleInputEmail1">Email address</label>
-                <input id="txt-email-address" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required />
+                <input id="senderName" class="form-control" placeholder="Your full name" required />
+                <input id="emailAddress" type="email" class="form-control" placeholder="Your email address" required />
+                <input id="subjectLine" class="form-control" placeholder="Subject line" required />
             </div>
             
             <div class="form-group mb-4">
-                <label for="exampleFormControlTextarea1">Message</label>
-                <textarea id="txt-email-body" class="form-control" rows="5" required></textarea>
+                <textarea id="emailBody" class="form-control" rows="5" placeholder="Your message" required></textarea>
             </div>
             
             <button type="submit" class="btn btn-primary mx-auto d-block">Send</button>
