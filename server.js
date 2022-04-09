@@ -26,12 +26,22 @@ const mailer = require('./config/nodemailer');
 // database configuration
 mongoose.connect(dbConfig.url);
 
-app.get('/', async (req, res) =>  {
+app.get('/', async (req, res) => {
     const allSkills = await skills.getAllSkills()
     const allPortfolios = await portfolios.getAllPortfolio();
-    const allArticles = await articles.getAllArticles();
+    res.render('partials/index', {
+        navBar: navBar.getnavBarItems,
+        skills : allSkills,
+        portfolio : allPortfolios
+    });
+});
 
-    res.render('partials/index', { navBar: navBar.getnavBarItems, skills : allSkills , blog: allArticles , portfolio : allPortfolios});
+app.get('/blog', async (req, res) => {
+    const allArticles = await articles.getAllArticles();
+    res.render('partials/blog', {
+        navBar: navBar.getnavBarItems,
+        articles : allArticles
+    })
 });
 
 app.post('/send', jsonParser, async (req, res) => {
