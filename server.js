@@ -41,6 +41,7 @@ app.get('/', async (req, res) => {
     const allSkills = await skills.getAllSkills()
     const allPortfolios = await portfolios.getAllPortfolio();
     res.render('partials/index', {
+        path: '/',
         navBar: navBar.getnavBarItems,
         skills : allSkills,
         portfolio : allPortfolios
