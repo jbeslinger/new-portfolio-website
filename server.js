@@ -12,6 +12,8 @@ const jsonParser = bodyParser.json();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
+
+app.engine('ejs', require('express-ejs-extend'));
 app.set('view engine', 'ejs');
 
 const skills = require('./models/queries/get_skills');
@@ -29,7 +31,7 @@ app.get('/', async (req, res) =>  {
     const allPortfolios = await portfolios.getAllPortfolio();
     const allArticles = await articles.getAllArticles();
 
-    res.render('layout', { navBar: navBar.getnavBarItems, skills : allSkills , blog: allArticles , portfolio : allPortfolios});
+    res.render('partials/index', { navBar: navBar.getnavBarItems, skills : allSkills , blog: allArticles , portfolio : allPortfolios});
 });
 
 app.post('/send', jsonParser, async (req, res) => {

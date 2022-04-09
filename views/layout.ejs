@@ -4,7 +4,10 @@
     <%- include('partials/header') %>
 </head>
 <body>
-    <%- include('partials/index') %>
+    <div class="container">
+        <%- include('partials/navbar') %>
+        <%- content %>
+    </div>
 </body>
 <%- include('partials/footer') %>
 <script type="text/javascript" src="/js/contact_form_handler.js"></script>
