@@ -14,6 +14,7 @@ const navBar = require('../config/navbar');
 router.get('/', async (req, res) => {
     const allArticles = await articles.getAllArticles();
     res.render('partials/blog', {
+        path: '/',
         navBar: navBar.getnavBarItems,
         articles : allArticles
     })
