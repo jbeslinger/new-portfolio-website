@@ -1,10 +1,11 @@
 <% extend('../layout') %>
+
 <div id="blog_search" class="row p-3 pt-2 pb-2 gx-0">
-    <%- include('../blog_partials/search') %>
+    <%- include('search_articles') %>
 </div>
 
 <div id="articles" class="row textbox mb-4 p-3 pt-2 pb-2 gx-0" style="background: #302020;">
-    <%- include("../blog_partials/articles_cards") %>
+    <%- include("articles_cards") %>
 </div>
 
 <script src='js/bundle.min.js'></script>

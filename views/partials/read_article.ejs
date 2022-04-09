@@ -1,0 +1,17 @@
+<% extend('../layout') %>
+
+<!-- Note to Taku: I'll format this later to be nice and pretty! Good enough for now. -->
+
+<h1><%= article.title %></h1>
+<h5><%= article.description %></h5>
+<div class="text-muted mb-4">
+    <%= article.create_date.toLocaleDateString() %>
+</div>
+
+<div class="container mb-4">
+    <%= article.markdown %>
+</div>
+
+<footer>
+    Tags: <code><%= article.tags %></code>
+</footer>

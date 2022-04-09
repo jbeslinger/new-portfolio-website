@@ -4,6 +4,11 @@ const router = express.Router();
 /* ************** */
 
 
+/* STATIC FOLDERS */
+router.use(express.static("public"));
+/* ************* */
+
+
 /* MISC */
 const articles = require('../models/queries/get_articles');
 const navBar = require('../config/navbar');
@@ -25,7 +30,11 @@ router.get('/:slug', async (req, res) => {
     if (article == null) {
         res.redirect('/')
     } else {
-        res.render('partials/read', { article: article })    
+        res.render('partials/read_article', {
+            path: '/',
+            navBar: navBar.getnavBarItems,
+            article: article
+        })
     }
 })
 /* ****** */
