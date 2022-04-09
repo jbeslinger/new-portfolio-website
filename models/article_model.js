@@ -7,6 +7,9 @@ const articleSchema = mongoose.Schema({
     
     description    :    String,
     
+    /// The link to a cover image to represent the article card
+    cover_image    :    String,
+
     /// CSV of every tag associated with the article
     tags           :    String,
     
