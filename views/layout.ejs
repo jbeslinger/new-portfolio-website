@@ -7,8 +7,25 @@
     <div class="container">
         <%- include('partials/navbar') %>
         <%- content %>
+        <%- include('partials/footer') %>
     </div>
 </body>
-<%- include('partials/footer') %>
-<script type="text/javascript" src="/js/contact_form_handler.js"></script>
+<% if (path == '/') {%>
+    <script type="text/javascript" src="/js/contact_form_handler.js"></script>
+<% } else {%>
+   <script src='js/bundle.min.js'></script>
+    <script>
+        let mySkills = [{"label":'tag', "value":'TAG'},{"label":'tag2', "value":'TAG2'},{"label":'tag3', "value":'TAG3'}];
+        const autoComplete = new SelectPure(".search", {
+        options: mySkills,
+        placeholder:"Click to search articles by tags",
+        multiple: true,
+        icon: "fa fa-times",
+        autocomplete: true,
+        onChange: value => {get_tags(value);},
+        });
+        console.log(autoComplete);
+    </script>
+    <script src='js/article_search.js'></script>
+<% } %>
 </html>

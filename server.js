@@ -1,5 +1,4 @@
 const express = require("express");
-
 const PORT = process.env.PORT || 3000;
 
 const mongoose = require('mongoose');
@@ -30,6 +29,7 @@ app.get('/', async (req, res) => {
     const allSkills = await skills.getAllSkills()
     const allPortfolios = await portfolios.getAllPortfolio();
     res.render('partials/index', {
+        path: '/',
         navBar: navBar.getnavBarItems,
         skills : allSkills,
         portfolio : allPortfolios
@@ -39,6 +39,7 @@ app.get('/', async (req, res) => {
 app.get('/blog', async (req, res) => {
     const allArticles = await articles.getAllArticles();
     res.render('partials/blog', {
+        path: '/blog',
         navBar: navBar.getnavBarItems,
         articles : allArticles
     })
