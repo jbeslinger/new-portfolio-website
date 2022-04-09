@@ -1,30 +1,31 @@
 const mongoose = require('mongoose')
 
-// blog article schema definition
+
+/// Blog article schema definition
 const articleSchema = mongoose.Schema({
     
-    title          :    String,
+    title          :    { type: String, required: true },
     
-    description    :    String,
+    description    :    { type: String, required: true },
     
     /// The link to a cover image to represent the article card
-    cover_image    :    String,
+    cover_image    :    { type: String, required: true },
 
     /// CSV of every tag associated with the article
-    tags           :    String,
+    tags           :    { type: String, required: true },
     
     /// The markdown body of the article itself
-    body           :    String,
+    markdown       :    { type: String, required: true },
     
     /// Date article was created
-    create_date    :    { type : Date, default : Date.now() },
+    create_date    :    { type: Date, default: Date.now() },
     
     /// The article's title slugified for routing purposes
-    slug           :    String,
+    slug           :    { type: String, required: true, unique: true },
 
     /// Whether or not the article should be displayed in the list of articles
-    hidden         :    Boolean
+    hidden         :    { type: Boolean, default: false }
 });
 
-// expose it to our app
+
 module.exports = mongoose.model('Articles', articleSchema);

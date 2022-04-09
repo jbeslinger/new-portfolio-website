@@ -1,7 +1,12 @@
 const article = require('../article_model');
 
-const getAllArticles = () => {
-    return article.find();
+const getAllArticles = async () => {
+    return await article.find();
+};
+
+const findOneArticle = async (slugToFind) => {
+    return await article.findOne({ slug: slugToFind });
 };
 
 module.exports.getAllArticles = getAllArticles;
+module.exports.findOneArticle = findOneArticle;
