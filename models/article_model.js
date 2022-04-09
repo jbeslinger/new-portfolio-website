@@ -7,6 +7,9 @@ const articleSchema = mongoose.Schema({
     
     description    :    String,
     
+    /// The link to a cover image to represent the article card
+    cover_image    :    String,
+
     /// CSV of every tag associated with the article
     tags           :    String,
     
@@ -16,6 +19,9 @@ const articleSchema = mongoose.Schema({
     /// Date article was created
     create_date    :    { type : Date, default : Date.now() },
     
+    /// The article's title slugified for routing purposes
+    slug           :    String,
+
     /// Whether or not the article should be displayed in the list of articles
     hidden         :    Boolean
 });
