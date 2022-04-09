@@ -16,6 +16,9 @@ const articleSchema = mongoose.Schema({
     /// Date article was created
     create_date    :    { type : Date, default : Date.now() },
     
+    /// The article's title slugified for routing purposes
+    slug           :    String,
+
     /// Whether or not the article should be displayed in the list of articles
     hidden         :    Boolean
 });
