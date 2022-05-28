@@ -1,17 +1,22 @@
 /* EXPRESS CONFIG */
-const express = require("express");
+const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json();
+const methodOverride = require('method-override');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+
 app.engine('ejs', require('express-ejs-extend'));
 app.set('view engine', 'ejs');
 
-const articleRouter = require('./routes/articles')
+const articleRouter = require('./routes/articles');
+const adminRouter = require('./routes/admin');
 /* ************** */
 
 
@@ -38,7 +43,7 @@ const mailer = require('./config/nodemailer');
 
 /* ROUTES */
 app.get('/', async (req, res) => {
-    const allSkills = await skills.getAllSkills()
+    const allSkills = await skills.getAllSkills();
     const allPortfolios = await portfolios.getAllPortfolio();
     res.render('partials/index', {
         path: '/',
@@ -60,6 +65,7 @@ app.post('/send', jsonParser, async (req, res) => {
 })
 
 app.use('/blog', articleRouter);
+app.use('/admin', adminRouter);
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);

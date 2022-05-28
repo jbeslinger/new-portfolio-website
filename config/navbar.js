@@ -22,7 +22,7 @@ const navBar = {
     blog : {
         title: "Blog",
         link: "blog",
-        img: "img/ic_work.png",
+        img: "img/ic_blog.png",
     },
     contact : {
         title: "Contact",

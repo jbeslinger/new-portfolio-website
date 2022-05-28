@@ -2,24 +2,25 @@ const mongoose = require('mongoose')
 
 // projects schema definition
 const projectSchema = mongoose.Schema({
-    title          :    String,
+
+    title          :    { type: String, required: true },
     
-    description    :    String,
+    description    :    { type: String, required: true },
     
     /// The year of release / last worked on
-    year           :    Number,
+    year           :    { type: Number, required: true },
 
     /// URL to the image to be displayed on the project
-    cover_image    :    String,
+    cover_image    :    { type: String, required: true },
     
     /// CSV of each skill used for the project
-    skills_used    :    String,
+    skills_used    :    { type: String, required: true },
     
     /// URL to the source code, typically on GitHub
-    src_code       :    String,
+    src_code       :    { type: String, required: false },
     
     /// URL to the download
-    dl_link        :    String
+    dl_link        :    { type: String, required: false }
 });
 
 // expose it to our app

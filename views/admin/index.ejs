@@ -1,0 +1,99 @@
+<% extend('layout') %>
+
+    <h1 class="mb-2">Welcome to Admin World!</h1>
+    <a href="../" class="btn btn-primary mb-4">Go Back</a>
+
+    <style>
+        a { color: black; }
+    </style>
+
+    <div class="card mb-4">
+        <h5 class="card-header">Blog Posts</h5>
+        <div class="card-body">
+            <% if (articles.length==0) { %>
+                <div class="mb-2">All blog posts should be listed here. Add one!</div>
+                <% } else { %>
+                    <% articles.forEach(article=> { %>
+                        <div class="row mb-2">
+                            <div class="col-sm">
+                                <a href="/admin/article/edit/<%= article.id %>">
+                                    <b>
+                                        <%= article.title %>
+                                    </b>
+                                </a>
+                                <small class="form-text text-muted">- <%= article.description %></small>
+                                <br />
+                                <i>
+                                    <%= new Date(article.create_date).toDateString() %>
+                                </i>
+                            </div>
+                            <div class="col-sm">
+                                <%- include('delete_button', { modelType: 'article' , modelId: article.id, modelName:
+                                    article.title }) %>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mb-2">
+
+                        </div>
+                        <% }) %>
+                            <% } %>
+                                <a href="/admin/article/new" class="btn btn-success">New Blog Post</a>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <h5 class="card-header">Portfolio</h5>
+        <div class="card-body">
+            <% if (projects.length==0) { %>
+                <div class="mb-2">All projects should be listed here. Add one!</div>
+                <% } else { %>
+                    <% projects.forEach(project=> { %>
+                        <div class="row mb-2">
+                            <div class="col-sm">
+                                <img src="<%= project.cover_image %>" height="64px" width="32px"
+                                    style="display:inline;margin-right: 2rem;" />
+                                <a href="/admin/project/edit/<%= project.id %>">
+                                    <i>
+                                        <%= project.title %>
+                                    </i></a>
+                            </div>
+                            <div class="col-sm">
+                                <%- include('delete_button', { modelType: 'project' , modelId: project.id, modelName:
+                                    project.title }) %>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } %>
+                                <hr>
+                                <a href="/admin/project/new" class="btn btn-success">New Portfolio Entry</a>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <h5 class="card-header">Skills</h5>
+        <div class="card-body">
+            <% if (skills.length==0) { %>
+                <div class="mb-2">All skills should be listed here. Add one!</div>
+                <% } else { %>
+                    <% skills.forEach(skill=> { %>
+                        <div class="row mb-2">
+                            <div class="col-sm">
+                                <img src="<%= skill.logo %>" height="16px" width="16px" style="display:inline" />
+                                <a href="/admin/skill/edit/<%= skill.id %>">
+                                    <%= skill.name %>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <%- include('delete_button', { modelType: 'skill' , modelId: skill.id, modelName:
+                                    skill.name }) %>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } %>
+                                <hr>
+                                <a href="/admin/skill/new" class="btn btn-success">New Skill Entry</a>
+        </div>
+    </div>
+
+    <%- include('delete_modal') %>

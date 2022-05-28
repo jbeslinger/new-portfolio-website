@@ -1,0 +1,68 @@
+<div class="form-group mb-4">
+    <label for="title">
+        Title
+    </label>
+    <input required class="form-control" type="text" name="title" id="title" value="<%= modelObject.title %>">
+</div>
+
+<div class="form-group mb-4">
+    <label for="description">
+        Description
+    </label>
+    <input required class="form-control" type="text" name="description" id="description"
+        value="<%= modelObject.description %>">
+    <small class="form-text text-muted">
+        Use only a sentence or two to summarize the project
+    </small>
+</div>
+
+<div class="form-group mb-4">
+    <label for="year">
+        Year
+    </label>
+    <input required class="form-control" type="number" name="year" id="year" value="<%= modelObject.year %>" min="1994"
+        max="2094">
+</div>
+
+<div class="form-group mb-4">
+    <label for="cover_image">
+        Cover Image
+    </label>
+    <input required class="form-control" type="text" name="cover_image" id="cover_image"
+        value="<%= modelObject.cover_image %>" oninput="updatePreviewImage(this)">
+</div>
+
+<div class="form-group mb-4">
+    <label for="skills_used">
+        Skills Used
+    </label>
+    <input required class="form-control" type="text" name="skills_used" id="skills_used"
+        value="<%= modelObject.skills_used %>">
+</div>
+
+<div class="form-group mb-4">
+    <label for="src_code">
+        Source Code
+    </label>
+    <input class="form-control" type="text" name="src_code" id="src_code" value="<%= modelObject.src_code %>">
+</div>
+
+<div class="form-group mb-4">
+    <label for="dl_link">
+        Download Link
+    </label>
+    <input class="form-control" type="text" name="dl_link" id="dl_link" value="<%= modelObject.dl_link %>">
+</div>
+
+
+
+<div class="card"
+    style="margin: auto; width: fit-content; background-position-x: 50%;border: 4px solid #d3d3d3;border-radius: 4px;box-sizing: border-box;overflow: hidden;">
+    <img id="preview" src="<%= modelObject.cover_image %>" width="202px" height="344px" />
+</div>
+
+<script>
+    function updatePreviewImage(inputElement) {
+        document.getElementById('preview').setAttribute('src', inputElement.value);
+    }
+</script>

@@ -1,0 +1,24 @@
+<% extend('layout') %>
+
+    <h1 class="mb-2">Make changes to a(n) <%= whatWeAreAdding %>
+    </h1>
+    <a href="/admin" class="btn btn-primary mb-4">Go Back</a>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="/admin/<%= whatWeAreAdding %>/update/<%= modelObject.id %>?_method=PUT" method="POST">
+                <% if (whatWeAreAdding=='article' ) { %>
+                    <%- include('form_article', { modelObject: modelObject }) %>
+                        <% } else if (whatWeAreAdding=='project' ) { %>
+                            <%- include('form_project', { modelObject: modelObject }) %>
+                                <% } else if (whatWeAreAdding=='skill' ) { %>
+                                    <%- include('form_skill', { modelObject: modelObject }) %>
+                                        <% } %>
+                                            <button id="submit_button" type="submit"
+                                                class="btn btn-success mb-2">Save</button>
+                                            <a id="cancel_button" href="/admin" class="btn btn-warning mb-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+    <%- include('form_shortcuts') %>
