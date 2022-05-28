@@ -1,0 +1,87 @@
+<div class="form-group mb-4">
+    <label for="title">
+        Title
+    </label>
+    <input required class="form-control" type="text" name="title" id="title" value="<%= modelObject.title %>">
+</div>
+
+<div class="form-group mb-4">
+    <label for="description">
+        Description
+    </label>
+    <input required class="form-control" type="text" name="description" id="description"
+        value="<%= modelObject.description %>">
+    <small class="form-text text-muted">
+        Use only a sentence or two to give a preliminary to the article
+    </small>
+</div>
+
+<div class="form-group mb-4">
+    <label for="cover_image">
+        Cover Image
+    </label>
+    <input required class="form-control" type="text" name="cover_image" id="cover_image"
+        value="<%= modelObject.cover_image %>">
+    <small class="form-text text-muted">
+        URL to an image to use for the thumbnail and header of the article
+    </small>
+</div>
+
+<div class="form-group mb-4">
+    <label for="tags">
+        Tags
+    </label>
+    <input required class="form-control" type="text" name="tags" id="tags" value="<%= modelObject.tags %>">
+    <small class="form-text text-muted">
+        CSV tags to aid in searching / categorizing articles; eg. 'code, robotics, raspberry pi'
+    </small>
+</div>
+
+<div class="form-group mb-4">
+    <label for="create_date">
+        Publish Date
+    </label>
+    <% createDate=new Date(modelObject.create_date); year=(createDate.getFullYear()).toString();
+        month=(createDate.getMonth() + 1).toString(); day=(createDate.getDate()).toString(); if (month.length==1)
+        month='0' + month; if (day.length==1) day='0' + day; formattedDate=year + '-' + month + '-' + day; %>
+        <input required class="form-control" type="date" name="create_date" id="create_date"
+            value="<%= formattedDate %>">
+        <small class="form-text text-muted">
+            The date that will be listed as 'published'; will default to today's date
+        </small>
+</div>
+
+<div class="form-group mb-4">
+    <label for="markdown">
+        Article Body
+    </label>
+    <textarea required class="form-control" cols="25" rows="25" name="markdown"
+        id="markdown"><%= modelObject.markdown %></textarea>
+</div>
+
+<div class="form-group mb-4">
+    <div class="form-check">
+        <label class="form-check-label" for="hidden">
+            Hidden
+        </label>
+        <input type="checkbox" class="form-check-input" name="hidden" id="hidden" <% if (modelObject.hidden) { %>
+        checked
+        <% } %>
+            >
+    </div>
+</div>
+
+<script>
+    // Captures tabs in the markdown textarea
+    document.getElementById('markdown').addEventListener('keydown', function (e) {
+        if (e.key == 'Tab') {
+            e.preventDefault();
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            this.value = this.value.substring(0, start) +
+                "\t" + this.value.substring(end);
+            this.selectionStart =
+                this.selectionEnd = start + 1;
+        }
+    });
+</script>

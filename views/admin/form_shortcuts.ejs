@@ -1,0 +1,13 @@
+<script>
+    // Prevent save page dialog because I do that a lot
+    document.onkeydown = (e) => {
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            saveButton = document.getElementById("submit_button");
+            saveButton.click();
+        } else if (e.key === "Escape") {
+            cancelButton = document.getElementById("cancel_button");
+            cancelButton.click();
+        }
+    }
+</script>

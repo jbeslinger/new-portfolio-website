@@ -3,16 +3,16 @@ const mongoose = require('mongoose')
 // skills schema definiton
 const skillSchema = mongoose.Schema({
     
-    name           :    String,
+    name           :    { type: String, required: true },
     
     /// URL to the image representation of the skill
-    logo           :    String,
+    logo           :    { type: String, required: true },
     
     /// A single-word type specifier that categorizes the skill
-    type           :    String,
+    type           :    { type: String, required: true },
     
     /// A number from 1 to 5 to denote proficiency
-    proficiency    :    Number
+    proficiency    :    { type: Number, required: true }
 })
 
 // expose it to our app

@@ -1,5 +1,13 @@
 const mongoose = require('mongoose')
 
+const slugify = require('slugify')
+
+var MarkdownIt = require('markdown-it'),
+    md = new MarkdownIt();
+
+const createDomPurify = require('dompurify')
+const { JSDOM } = require('jsdom')
+const dompurify = createDomPurify(new JSDOM().window)
 
 /// Blog article schema definition
 const articleSchema = mongoose.Schema({
@@ -16,6 +24,9 @@ const articleSchema = mongoose.Schema({
     
     /// The markdown body of the article itself
     markdown       :    { type: String, required: true },
+
+    // The parsed markdown to be rendered
+    html           :    { type: String, required: true },
     
     /// Date article was created
     create_date    :    { type: Date, default: Date.now() },
@@ -27,5 +38,21 @@ const articleSchema = mongoose.Schema({
     hidden         :    { type: Boolean, default: false }
 });
 
+articleSchema.pre('validate', function(next) {
+    if (this.title) {
+        this.slug = slugify(this.title, {
+            lower       :       true,
+            strict      :       true,
+            locale      :       'en',
+            remove      :       /[*+~.()'"!:@]/g,
+        });
+    }
+
+    if (this.markdown) {
+        this.html = dompurify.sanitize(md.render(this.markdown));
+    }
+
+    next();
+});
 
 module.exports = mongoose.model('Articles', articleSchema);

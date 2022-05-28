@@ -18,7 +18,7 @@ contactForm.addEventListener('submit', (e) => {
     };
 
     let xhr = new XMLHttpRequest();
-    xhr.open('post', '/send');
+    xhr.open('POST', '/send');
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.onload = () => {
         if (xhr.responseText == 'success') {
