@@ -12,7 +12,6 @@ mongoose.connect(dbConfig.url);
 const skills = require('../models/queries/get_skills');
 const portfolios = require('../models/queries/get_portfolios');
 const articles = require('../models/queries/get_articles');
-const res = require('express/lib/response');
 
 const Article = require('./../models/article_model');
 const Project = require('./../models/project_model');
@@ -82,7 +81,6 @@ router.get('/article/new', async (req, res) => {
 router.post('/article/add', async (req, res) => {
     if (!authorize(req, res)) return reject(res);
 
-    const slugify = require('slugify');
     const newArticle = new Article({
         title           :    req.body.title,
         description     :    req.body.description,

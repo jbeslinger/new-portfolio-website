@@ -2,9 +2,6 @@ const mongoose = require('mongoose')
 
 const slugify = require('slugify')
 
-var MarkdownIt = require('markdown-it'),
-    md = new MarkdownIt();
-
 const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
 const dompurify = createDomPurify(new JSDOM().window)
@@ -47,6 +44,29 @@ articleSchema.pre('validate', function(next) {
             remove      :       /[*+~.()'"!:@]/g,
         });
     }
+    
+    var hljs = require('highlight.js');
+    var md = require('markdown-it')({
+        html            :       true,
+        xhtmlOut        :       true,
+        breaks          :       true,
+        linkify         :       true,
+        typographer     :       true,
+        quotes          :       '“”‘’',
+        highlight       :       
+        function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(str, { language: lang }).value;
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        }
+    })
+    .use(require('markdown-it-sub'))
+    .use(require('markdown-it-sup'))
+    .use(require('markdown-it-abbr'))
 
     if (this.markdown) {
         this.html = dompurify.sanitize(md.render(this.markdown));
