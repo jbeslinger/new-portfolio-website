@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  background-attachment: fixed;
+  animation: bg-scrolling 5s linear infinite;
+  background-image: url(/img/background_lite.png);
+}
+
+@keyframes bg-scrolling {
+  100% {
+    background-position: 32px 32px;
+  }
+}
+div.dialog-box {
+  color: white;
+  background: #302020;
+  box-shadow: 4px 4px 8px #302020;
+  padding: 16px;
+  border: 16px solid transparent;
+  border-image: url("/img/dialog-box-border.png") round;
+  border-image-slice: 16;
+}
+div.dialog-box hr {
+  border-color: #d3d3d3;
+}
+div.dialog-box h1.dialog-box-header {
+  font-family: "DroidSansBold";
+  font-size: 26pt;
+}
+div.dialog-box h1.dialog-box-header img {
+  vertical-align: -50%;
+  -webkit-filter: drop-shadow(0px 0px 3px #d3d3d3);
+}
+div.dialog-box div.dialog-box-body {
+  font-family: "DroidSans";
+}
+div.dialog-box a {
+  font-family: "DroidSansBold";
+  background: -webkit-linear-gradient(white, #703fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+div.dialog-box a:hover {
+  font-style: italic;
+}
+div.dialog-box a:active {
+  background: -webkit-linear-gradient(white, #ff0060);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+div.dialog-box .card {
+  background: -webkit-linear-gradient(#d3d3d3, #9a8a8a);
+}
+div.dialog-box .card .progress-bar {
+  background-color: #703fff;
+}
+
+#my-avatar:hover {
+  content: url(/img/av_day2.png);
+}
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -128px;
+  height: 128px;
+  visibility: hidden;
+}
+
+@font-face {
+  font-family: DroidSans;
+  src: url("/fonts/DroidSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: DroidSansBold;
+  src: url("/fonts/DroidSans-Bold.ttf") format("truetype");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=style.css.map */

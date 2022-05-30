@@ -1,0 +1,103 @@
+$primary-color: rgb(112,63,255);
+$secondary-color: rgb(255,0,96);
+$dialog-box-light: #d3d3d3;
+$dialog-box-mid: #9a8a8a;
+$dialog-box-dark: #302020;
+$text-color: white;
+
+$hyperlink-adjustment: 128px;
+
+// Scrolling background pattern
+body {
+    margin: 0;
+    background-attachment: fixed;
+	animation: bg-scrolling 5s linear infinite;
+	background-image: url(/img/background_lite.png);
+}
+@keyframes bg-scrolling {
+	100% {
+        background-position: 32px 32px;
+    }
+}
+
+// Dialog box containers
+div.dialog-box {
+    color: $text-color;
+	background: $dialog-box-dark;
+	box-shadow: 4px 4px 8px $dialog-box-dark;
+    padding: 16px;
+    border: 16px solid transparent;
+    border-image: url("/img/dialog-box-border.png") round;
+    border-image-slice: 16;
+
+    hr {
+        border-color: $dialog-box-light;
+    }
+
+    h1.dialog-box-header {
+        font-family: 'DroidSansBold';
+        font-size: 26pt;
+
+        img {
+            vertical-align: -50%;
+            -webkit-filter: drop-shadow(0px 0px 3px $dialog-box-light);
+        }
+    }
+
+    div.dialog-box-body {
+        font-family: 'DroidSans';
+    }
+    
+    a {
+        font-family: 'DroidSansBold';
+        background: -webkit-linear-gradient($text-color, $primary-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    a:hover {
+        font-style: italic;
+    }
+    a:active {
+        background: -webkit-linear-gradient($text-color, $secondary-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+        background: -webkit-linear-gradient($dialog-box-light, $dialog-box-mid);
+
+        .progress-bar {
+            background-color: $primary-color;
+        }
+    }
+}
+
+// Main page avatar onhover animation
+#my-avatar:hover {
+    content: url(/img/av_day2.png);
+}
+
+// Anchor hyperlink height adjustment
+*[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -$hyperlink-adjustment;
+    height: $hyperlink-adjustment;
+    visibility: hidden;
+}
+
+// Fonts
+@font-face {
+    font-family: DroidSans;
+    src: url("/fonts/DroidSans.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: DroidSansBold;
+    src: url("/fonts/DroidSans-Bold.ttf") format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}

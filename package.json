@@ -26,6 +26,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "scss": "sass --watch scss:public/css"
   }
 }
