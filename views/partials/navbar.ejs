@@ -1,18 +1,27 @@
-<!-- Todo: pull out inline css. Josh needs to confirm color scheme -->
-<nav class="navbar navbar-expand-lg d-block pb-0" style="background-color: #302020;">
-    <img class="spinny mx-auto p-3 d-block" src="img/favicon-big.png">
-    <ul id="navbar" class="navbar-nav pl-5 col-12 h-100" style="background-color: #917575;">
-        <% for(var nav in navBar){ %>
-            <li class="nav-item  col-md-12 col-lg-2">
-                <% if (path != '/'){ %>
-                    <a class="text-decoration-none d-block text-center" href="/<%= navBar[nav].link %>" style="color:#302020">
-                <% } else {%>
-                    <a class="text-decoration-none d-block text-center" href="<%= '../' + navBar[nav].link %>" style="color:#302020">
-                <% } %>
-                    <img class="mx-auto d-block" src="<%= navBar[nav].img %>">
-                    <%= navBar[nav].title %>
-                </a>
-            </li>
-        <% }%>
-    </ul>
+<nav class="sticky-top navbar navbar-expand-lg mb-4" style="background-color: #302020;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="img/favicon-big.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="background-color: #917575;">
+                <% for(var nav in navBar) { %>
+                    <li class="nav-item">
+                        <% if (path !='/' ){ %>
+                            <a class="text-decoration-none d-block text-center" href="/<%= navBar[nav].link %>"
+                                style="color:#302020">
+                                <% } else {%>
+                                    <a class="text-decoration-none d-block text-center"
+                                        href="<%= '../' + navBar[nav].link %>" style="color:#302020">
+                                        <% } %>
+                                            <img class="mx-auto d-block" src="<%= navBar[nav].img %>">
+                                            <%= navBar[nav].title %>
+                                    </a>
+                    </li>
+                    <% }%>
+            </ul>
+        </div>
+    </div>
 </nav>

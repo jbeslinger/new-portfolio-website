@@ -1,7 +1,8 @@
 const article = require('../article_model');
 
 const getAllArticles = async () => {
-    return await article.find();
+    return await article.find()
+        .sort({ 'create_date' : 'descending' });
 };
 
 const findOneArticle = async (slugToFind) => {

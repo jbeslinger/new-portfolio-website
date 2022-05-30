@@ -15,7 +15,7 @@ app.use(methodOverride('_method'));
 app.engine('ejs', require('express-ejs-extend'));
 app.set('view engine', 'ejs');
 
-const articleRouter = require('./routes/articles');
+const blogRouter = require('./routes/blog');
 const adminRouter = require('./routes/admin');
 /* ************** */
 
@@ -64,7 +64,7 @@ app.post('/send', jsonParser, async (req, res) => {
     }
 })
 
-app.use('/blog', articleRouter);
+app.use('/blog', blogRouter);
 app.use('/admin', adminRouter);
 
 app.listen(PORT, () => {

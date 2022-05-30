@@ -1,14 +1,21 @@
-<!-- Todo: pull out inline css.-->
-<% articles.forEach(article => { %>
+<% articles.forEach(article=> { %>
     <% if (!article.hidden) { %>
-        <a href="/blog/<%= article.slug %>">
-            <div class="card col-sm-6 col-md-4 col-lg-2 ms-1 mt-1 mb-1 " style="margin: auto;height: 352px;background-color: magenta;background-size: cover;background-position-x: 50%;border: 4px solid #d3d3d3;border-radius: 4px;box-sizing: border-box;overflow: hidden;background-image: url(<%= article.cover_image %>)">
-                <span class="label fixed-bottom position-absolute" style="background-color: #00000080;width: 100%;height: 128px;transition: all 0.1s ease-in;color: white;box-sizing: border-box;padding: 8px;font-family: 'DroidSans';font-size: 1em;line-height: 1.6;">
-                    <i><%= article.title %></i>
-                    <br><%= article.description %>, <%= article.create_date %></br>
-                    <tt><%= article.tags%></tt>
+        <a href="/blog/<%= article.slug %>" style="width: fit-content">
+            <div class="card mb-4 mx-2"
+                style="width: 448px; height: 320px; background-position: center; border: 4px solid #d3d3d3; border-radius: 4px;box-sizing: border-box; overflow: hidden; background-image: url(<%= article.cover_image %>)">
+                <span class="label fixed-bottom position-absolute"
+                    style="background-color: #00000080; width: 100%; height: 128px; transition: all 0.1s ease-in; color: white;box-sizing: border-box;padding: 8px;font-family: 'DroidSans';font-size: 1em;line-height: 1.6;">
+                    <i>
+                        <%= article.title %>
+                    </i>
+                    <br />
+                    <%= article.create_date %>
+                        <br /><br />
+                        <tt style="float: right;">
+                            <%= article.tags%>
+                        </tt>
                 </span>
             </div>
         </a>
-    <% } %>
-<% }) %>
+        <% } %>
+            <% }) %>
