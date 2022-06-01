@@ -24,7 +24,7 @@
                     <div class="card mb-2" >
                         <div class="card-body">
                             <!-- <h5 class="card-title text-center"><%= skill.name %></h5> -->
-                            <img class="card-img-top mb-3" src=<%= skill.logo %> style="height: 4rem;">
+                            <img class="card-img-top mb-3" src=<%= skill.logo %> title="<%= skill.name %>" alt="<%= skill.name %>">
                             <div class="progress">
                                 <div class="progress-bar" style="width: <%= (skill.proficiency * 100 / 5) %>%" role="progressbar" aria-valuenow=<%= skill.proficiency %> aria-valuemin="0" aria-valuemax="5"></div>
                             </div>

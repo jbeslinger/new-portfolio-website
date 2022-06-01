@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   background-attachment: fixed;
@@ -11,6 +12,7 @@ body {
   }
 }
 div.dialog-box {
+  margin-bottom: 3rem;
   color: white;
   background: #302020;
   box-shadow: 4px 4px 8px #302020;
@@ -33,6 +35,9 @@ div.dialog-box h1.dialog-box-header img {
 div.dialog-box div.dialog-box-body {
   font-family: "DroidSans";
 }
+div.dialog-box div.dialog-box-body p::before {
+  content: "⬩ ";
+}
 div.dialog-box a {
   font-family: "DroidSansBold";
   background: -webkit-linear-gradient(white, #703fff);
@@ -52,8 +57,19 @@ div.dialog-box a:active {
 div.dialog-box .card {
   background: -webkit-linear-gradient(#d3d3d3, #9a8a8a);
 }
+div.dialog-box .card .card-img-top {
+  height: 3rem;
+}
+div.dialog-box .card .progress {
+  height: 4px;
+}
 div.dialog-box .card .progress-bar {
   background-color: #703fff;
+}
+div.dialog-box form {
+  justify-content: center;
+  margin: auto;
+  width: 50%;
 }
 
 #my-avatar:hover {
