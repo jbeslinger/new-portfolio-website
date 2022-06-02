@@ -21,13 +21,9 @@
     <div class="row justify-content-center mb-4">
             <% _skills.forEach(skill => { %>
                 <div style="max-width: 8rem;">
-                    <div class="card mb-2" >
-                        <div class="card-body">
-                            <!-- <h5 class="card-title text-center"><%= skill.name %></h5> -->
-                            <img class="card-img-top mb-3" src=<%= skill.logo %> title="<%= skill.name %>" alt="<%= skill.name %>">
-                            <div class="progress">
-                                <div class="progress-bar" style="width: <%= (skill.proficiency * 100 / 5) %>%" role="progressbar" aria-valuenow=<%= skill.proficiency %> aria-valuemin="0" aria-valuemax="5"></div>
-                            </div>
+                    <div class="card skill-card" >
+                        <div class="card-body d-flex align-items-center">
+                            <img class="card-img-top" src=<%= skill.logo %> title="<%= skill.name %>" alt="<%= skill.name %>">
                         </div>
                     </div>
                 </div>

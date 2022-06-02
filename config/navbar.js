@@ -19,16 +19,16 @@ const navBar = {
         link: "#portfolio",
         img: "img/ic_work.png",
     },
+    contact : {
+        title: "Contact",
+        link: "#contact",
+        img: "img/ic_contact.png",
+    },
     blog : {
         title: "Blog",
         link: "blog",
         img: "img/ic_blog.png",
     },
-    contact : {
-        title: "Contact",
-        link: "#contact",
-        img: "img/ic_contact.png",
-    }
 };
 
 module.exports.getnavBarItems = navBar;
