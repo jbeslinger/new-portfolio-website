@@ -30,7 +30,28 @@ body {
   background-color: #9a8a8a;
 }
 .navbar-collapse a {
-  color: #302020;
+  color: #302020 !important;
+}
+
+.article-card {
+  background-color: #302020 !important;
+  background: none !important;
+  color: white;
+}
+.article-card .text-muted {
+  color: lightgray !important;
+}
+.article-card .article-card-img-top {
+  background-color: #302020 !important;
+  height: 256px;
+  object-fit: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+}
+.article-card .card-body {
+  background-color: #302020 !important;
 }
 
 div.dialog-box {
@@ -84,10 +105,21 @@ div.dialog-box .skill-card {
 div.dialog-box .card {
   background: -webkit-linear-gradient(#9a8a8a, #917575);
 }
-div.dialog-box .card .card-img-top {
+div.dialog-box .card .skill-card-img {
   max-height: 38px;
   max-width: 64px;
   -webkit-filter: drop-shadow(0px 0px 10px #302020);
+}
+div.dialog-box .card .article-card-img {
+  max-height: 144px;
+  max-width: 256px;
+  object-fit: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+div.dialog-box .card .card-tags {
+  text-shadow: -1px -1px 0px #302020, 0px -1px 0px #302020, 1px -1px 0px #302020, 1px 0px 0px #302020, 1px 1px 0px #302020, 0px 1px 0px #302020, -1px 1px 0px #302020, -1px 0px 0px #302020;
+  color: #ff0060;
 }
 div.dialog-box .card .progress {
   height: 4px;

@@ -1,15 +1,19 @@
 <% extend('../layout') %>
 
-<h1><%= article.title %></h1>
-<h5><%= article.description %></h5>
-<div class="text-muted mb-4">
-    <%= article.create_date.toLocaleDateString() %>
+<div class="dialog-box">
+<div class="card article-card mb-3">
+    <img src="<%= article.cover_image %>" class="card-img-top article-card-img-top">
+    <div class="card-body">
+        <h5 class="card-title"><%= article.title %></h5>
+        <p class="card-text"><%= article.description %></p>
+        <p class="card-text"><small class="text-muted"><%= article.create_date.toLocaleDateString() %></small></p>
+        <hr>
+        <p class="card-text">
+            <%- article.html %>
+        </p>
+    </div>
+    <div class="card-footer text-muted">
+        tags: <code class="card-tags" style="float: right;"><%= article.tags %></code>
+    </div>
 </div>
-
-<div class="container mb-4">
-    <%- article.html %>
 </div>
-
-<footer>
-    Tags: <code><%= article.tags %></code>
-</footer>

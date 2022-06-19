@@ -1,5 +1,6 @@
 // Color palette
 $primary-color: rgb(112,63,255);
+$primary-color-light: #ac90ff;
 $secondary-color: rgb(255,0,96);
 $dialog-box-light: #d3d3d3;
 $dialog-box-mid: #9a8a8a;
@@ -16,6 +17,19 @@ $height-of-navbar: 125px;
 $desired-space-between-dialogs: 24px;
 $hyperlink-adjustment: ($height-of-navbar + $desired-space-between-dialogs);
 $background-scroll-speed: 64px 32px;
+
+// Mixins
+@mixin text-outline($color: black, $size: 1px) {
+    text-shadow:
+    -#{$size}   -#{$size}   0px     $color,
+    0px         -#{$size}   0px     $color,
+    #{$size}    -#{$size}   0px     $color,
+    #{$size}    0px         0px     $color,
+    #{$size}    #{$size}    0px     $color,
+    0px         #{$size}    0px     $color,
+    -#{$size}   #{$size}    0px     $color,
+    -#{$size}   0px         0px     $color;
+}
 
 
 
@@ -54,7 +68,31 @@ body {
     }
 
     a {
-        color: $dialog-box-darkest;
+        color: $dialog-box-darkest !important;
+    }
+}
+
+.article-card {
+    background-color: $dialog-box-darkest !important;
+    background: none !important;
+    color: white;
+
+    .text-muted {
+        color: lightgray !important;
+    }
+    
+    .article-card-img-top {
+        background-color: $dialog-box-darkest !important;
+        height: 256px;
+        object-fit: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+
+    .card-body {
+        background-color: $dialog-box-darkest !important;
     }
 }
 
@@ -116,11 +154,22 @@ div.dialog-box {
 
     .card {
         background: -webkit-linear-gradient($dialog-box-mid, $dialog-box-dark);
-
-        .card-img-top {
+   
+        .skill-card-img {
             max-height: 38px;
             max-width: 64px;
             -webkit-filter: drop-shadow(0px 0px 10px $dialog-box-darkest);
+        }
+        .article-card-img {
+            max-height: 144px;
+            max-width: 256px;
+            object-fit: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .card-tags {
+            @include text-outline($dialog-box-darkest, 1px);
+            color: $secondary-color;
         }
         .progress {
             height: 4px;

@@ -150,6 +150,7 @@ router.post('/project/add', async (req, res) => {
         skills_used     :   req.body.skills_used,
         src_code        :   req.body.src_code,
         dl_link         :   req.body.dl_link,
+        list_order      :   req.body.list_order,
     });
     await saveModelThenRedirectHome(newProject, res);
 });
@@ -176,6 +177,7 @@ router.put('/project/update/:id', async (req, res) => {
     project.skills_used     =   req.body.skills_used;
     project.src_code        =   req.body.src_code;
     project.dl_link         =   req.body.dl_link;
+    project.list_order      =   req.body.list_order;
 
     saveModelThenRedirectHome(project, res);
 });
@@ -208,6 +210,7 @@ router.post('/skill/add', async (req, res) => {
         logo            :    req.body.logo,
         type            :    req.body.type,
         proficiency     :    req.body.proficiency,
+        list_order      :    req.body.list_order,
     });
     await saveModelThenRedirectHome(newSkill, res);
 });
@@ -231,6 +234,7 @@ router.put('/skill/update/:id', async (req, res) => {
     skill.logo          =   req.body.logo;
     skill.type          =   req.body.type;
     skill.proficiency   =   req.body.proficiency;
+    skill.list_order    =   req.body.list_order;
 
     saveModelThenRedirectHome(skill, res);
 });
