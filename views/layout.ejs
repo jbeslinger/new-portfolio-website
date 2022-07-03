@@ -3,10 +3,9 @@
 <head>
     <%- include('partials/header') %>
 </head>
-<body>
+<body onload="initTheme(); initScrolling();">
     <%- include('partials/navbar') %>
     <div class="container">
-        
         <%- content %>
     </div>
     <%- include('partials/footer') %>

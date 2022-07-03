@@ -38,8 +38,12 @@ body {
     margin: 0;
     background-attachment: fixed;
 	animation: bg-scrolling 5s linear infinite;
-	background-image: url(/img/background_lite.png);
+    background-image: url(/img/background_lite.png);
 }
+body.dark {
+    background-image: url(/img/background_dark.png);
+}
+
 @keyframes bg-scrolling {
 	100% {
         background-position: $background-scroll-speed;
@@ -201,8 +205,31 @@ div.dialog-box {
 }
 
 // Main page avatar onhover animation
-#my-avatar:hover {
+.my-avatar {
+    content: url(/img/av_day1.png);
+}
+.my-avatar:hover {
     content: url(/img/av_day2.png);
+}
+.my-avatar.dark {
+    content: url(/img/av_nite1.png);
+}
+.my-avatar.dark:hover {
+    content: url(/img/av_nite2.png);
+}
+
+// Light switch animation
+.light-switch {
+    content: url(/img/liteswitch-1.png);
+}
+.light-switch.dark {
+    content: url(/img/liteswitch-2.png);
+}
+
+.scroll-toggle {
+    content: url(/img/clear.png);
+    background-image: url(/img/scroll_toggle.png);
+    animation: bg-scrolling 5s linear infinite;
 }
 
 // Anchor hyperlink height adjustment
