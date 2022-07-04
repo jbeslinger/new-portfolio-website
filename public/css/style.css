@@ -112,7 +112,7 @@ div.dialog-box .card {
 div.dialog-box .card .skill-card-img {
   max-height: 38px;
   max-width: 64px;
-  -webkit-filter: drop-shadow(0px 0px 10px #302020);
+  -webkit-filter: drop-shadow(0px 0px 5px white);
 }
 div.dialog-box .card .article-card-img {
   max-height: 144px;
@@ -134,7 +134,17 @@ div.dialog-box .card .progress-bar {
 div.dialog-box form {
   justify-content: center;
   margin: auto;
-  width: 50%;
+  width: 80%;
+}
+div.dialog-box .postcard {
+  border: 16px solid transparent;
+  border-image: url("/img/postcard-border.png") round;
+  border-image-slice: 16;
+  background-color: #9a8a8a;
+}
+div.dialog-box .postcard button {
+  background-color: #703fff;
+  --bs-btn-border-color: $primary-color;
 }
 
 .spinny-logo {
