@@ -37,7 +37,9 @@ function authorize(req, res) {
     }
 
     const [username, password] = Buffer.from(authorization.replace('Basic ', ''), 'base64').toString().split(':');
-    if (!(username === cred.parsed.ADMIN_USER && password === cred.parsed.ADMIN_PASS)) {
+    adminUser = process.env.ADMIN_USER || cred.parsed.ADMIN_USER;
+    adminPass = process.env.ADMIN_PASS || cred.parsed.ADMIN_PASS;
+    if (!(username === adminUser && password === adminPass)) {
         return false;
     }
 

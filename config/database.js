@@ -2,5 +2,5 @@ const cred = require('dotenv').config()
 
 //databse configuration settings
 module.exports = {
-	'url' : cred.parsed.MONGO_URI
+	'url' : process.env.MONGO_URI || cred.parsed.MONGO_URI
 };
