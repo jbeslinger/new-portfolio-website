@@ -1,7 +1,5 @@
-theme = undefined;
-
 function initTheme() {
-    theme = localStorage.getItem('theme');
+    var theme = localStorage.getItem('theme');
     if (theme == null) {
         localStorage.setItem('theme', 'light');
     } else if (theme == 'dark') {
@@ -10,8 +8,9 @@ function initTheme() {
 }
 
 function changeTheme() {
+    var theme = localStorage.getItem('theme');
     toggleAllElements();
-
+    
     if (theme == 'dark') {
         localStorage.setItem('theme', 'light');
     } else if (theme == 'light') {

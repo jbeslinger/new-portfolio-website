@@ -9,7 +9,10 @@
         </div>
         <hr>
         <div id="articles" class="dialog-box-body row justify-content-center">
-            <%- include("partials/articles_cards") %>
+            <% if (articles.length > 0) { %>
+                <%- include("partials/articles_cards") %>
+            <% } else { %>
+                <h3 class="text-center my-5" style="color: #9a8a8a;">It's a little empty here for now!</h3>
+            <% } %>
         </div>
-    
     </div>
